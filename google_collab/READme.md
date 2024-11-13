@@ -130,7 +130,25 @@ result.show()
 ```
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
 
+### Consultas SQL usando PySpark
+Para usar SQL en Spark, primero necesitamos registrar el DataFrame como una tabla temporal. Esto se hace de la siguiente manera:
+
+```bash
+# Crear y registrar el DataFrame como tabla temporal
+df.createOrReplaceTempView("people")
+```
+
+Para ejecutar consultas SQL en el DataFrame registrado, usa el siguiente código:
+
 **Paso 9: Cerrar la sesión de spark** 
+```bash
+# Ejecutar una consulta SQL
+sql_result = spark.sql("SELECT name FROM people WHERE id > 1")
+
+# Mostrar los resultados de la consulta
+sql_result.show()
+```
+
 
 ```bash
 spark.stop()
