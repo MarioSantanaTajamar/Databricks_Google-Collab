@@ -111,7 +111,7 @@ Este paso:
 - Crea o obtiene una sesión de Spark con el nombre "TestSpark". 
 - Te permite empezar a trabajar con DataFrames, ejecutar consultas SQL y realizar otras operaciones en Spark de manera más sencilla.
 
-**Paso 8: Verificar que Spark está funcionando**
+**Paso 8: Verificar que Spark está funcionando y hacer consultas**
 
 Para asegurarte de que Spark está funcionando correctamente, puedes probar ejecutar un comando simple como este:
 
@@ -137,21 +137,71 @@ Instalar, importar e instalar findspark:
 import findspark
 findspark.init()
 ```
+**Explicación:** 
+1. **`findspark.init()`** inicializa el entorno de `PySpark` para asegurarse de que Python puede encontrar todas las dependencias necesarias.
 
-Para usar SQL en Spark, primero necesitamos registrar el DataFrame como una tabla temporal. Esto se hace de la siguiente manera:
+Crear un nuevo DataFrame para hacer nuevas consultas usando SQL:
 ```bash
-# Crear y registrar el DataFrame como tabla temporal
-df.createOrReplaceTempView("people")
-```
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 
-Para ejecutar consultas SQL en el DataFrame registrado, usa el siguiente código:
-```bash
-# Ejecutar una consulta SQL
-sql_result = spark.sql("SELECT name FROM people WHERE id > 1")
-
-# Mostrar los resultados de la consulta
-sql_result.show()
+# Crear SparkSession
+spark = SparkSession.builder \
+    .appName("DataFrameExample") \
+    .getOrCreate()
 ```
+**Explicación:** 
+1. **`SparkSession`**: Es la entrada principal para trabajar con `DataFrames` en PySpark. Aquí se crea una sesión con el nombre "DataFrameExample". `SparkSession` facilita la creación y manipulación de datos estructurados.
+
+### Creación de un DataFrame en PySpark
+```python
+# Datos de ejemplo
+data = [
+    (1, "John Doe", "IT", 75000),
+    (2, "Jane Smith", "HR", 65000),
+    (3, "Bob Johnson", "Sales", 80000),
+    (4, "Alice Brown", "Marketing", 70000),
+    (5, "Charlie Davis", "IT", 78000)
+]
+
+# Esquema del DataFrame
+columns = ["id", "name", "department", "salary"]
+
+# Crear DataFrame
+df = spark.createDataFrame(data, columns)
+
+# Mostrar el DataFrame
+df.show()
+```
+**Explicación:** 
+1. Se crea una lista llamada **`data`** con tuplas, donde cada tupla representa una fila de datos con valores específicos (ID, nombre, departamento, y salario).
+2. Se define el esquema con los nombres de las columnas a través de la lista **`columns`**.
+3. **`spark.createDataFrame(data, columns)`** construye un `DataFrame` a partir de los datos y del esquema definido.
+4. **`df.show()`** imprime el contenido del `DataFrame` en la consola.
+
+Creamos una vista temporal del dataframe que hemos creado:
+```python
+# Crear vista temporal
+df.createOrReplaceTempView("employees")
+```
+**Explicación:** 
+1. **Crear vista temporal**: Se utiliza `createOrReplaceTempView` para crear una vista temporal llamada `employees`. Esto permite ejecutar consultas SQL directamente sobre el DataFrame.
+
+Apartir de ahi ya podemos hacer consultas SQL refiriendonos a la tabla temporal que acabamos de crear:
+```
+# Consulta SQL para empleados con salario alto
+high_salary_sql = spark.sql("SELECT * FROM employees WHERE salary > 70000")
+print("Empleados con salario alto (SQL):")
+high_salary_sql.show()
+
+# Consulta SQL para salario promedio por departamento
+avg_salary_sql = spark.sql("SELECT department, AVG(salary) as avg_salary FROM employees GROUP BY department")
+print("Salario promedio por departamento (SQL):")
+avg_salary_sql.show()
+```
+**Explicación:** 
+1. **Consulta SQL para empleados con salario alto**: Con `spark.sql`, se ejecuta una consulta SQL estándar que selecciona todos los empleados con salarios superiores a 70000. El resultado se almacena en `high_salary_sql` y se muestra con `high_salary_sql.show()`.
+2. **Consulta SQL para calcular salario promedio por departamento**: Se utiliza otra consulta SQL para calcular el salario promedio por departamento, agrupando los resultados por `department` y utilizando `AVG(salary)` para obtener el promedio. Los resultados se muestran con `avg_salary_sql.show()`.
 
 **Paso 9: Cerrar la sesión de spark** 
 
