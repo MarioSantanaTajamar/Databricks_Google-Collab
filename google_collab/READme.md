@@ -18,7 +18,7 @@ Apache Spark requiere Java para funcionar, así que necesitamos instalarlo prime
 
 
 ```bash
-!apt-get update –y
+!apt-get update
 ```
     
 
