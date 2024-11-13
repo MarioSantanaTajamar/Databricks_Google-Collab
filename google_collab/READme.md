@@ -113,6 +113,7 @@ Este paso:
 
 ### Paso 8: Verificar que Spark está funcionando y hacer consultas
 
+### Consultas usando PySpark
 Para asegurarte de que Spark está funcionando correctamente, puedes probar ejecutar un comando simple como este:
 
 Python.
@@ -130,7 +131,7 @@ result.show()
 ```
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
 
-### Consultas SQL usando PySpark
+### Consultas usando SQL.
 Instalar, importar e instalar findspark:
 ```bash
 !pip install pyspark findspark
