@@ -131,8 +131,14 @@ result.show()
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
 
 ### Consultas SQL usando PySpark
-Para usar SQL en Spark, primero necesitamos registrar el DataFrame como una tabla temporal. Esto se hace de la siguiente manera:
+Instalar, importar e instalar findspark:
+```bash
+!pip install pyspark findspark
+import findspark
+findspark.init()
+```
 
+Para usar SQL en Spark, primero necesitamos registrar el DataFrame como una tabla temporal. Esto se hace de la siguiente manera:
 ```bash
 # Crear y registrar el DataFrame como tabla temporal
 df.createOrReplaceTempView("people")
