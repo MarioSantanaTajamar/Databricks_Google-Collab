@@ -1,4 +1,4 @@
-# GOOGLE COLAB
+﻿# GOOGLE COLAB
 
 Vamos a ejecutar de forma local Google Colab y ejecutar en sus cuadernos Spark
 
@@ -174,6 +174,8 @@ df = spark.createDataFrame(data, columns)
 # Mostrar el DataFrame
 df.show()
 ```
+![](images/imagen.png)
+
 **Explicación:** 
 1. Se crea una lista llamada **`data`** con tuplas, donde cada tupla representa una fila de datos con valores específicos (ID, nombre, departamento, y salario).
 2. Se define el esquema con los nombres de las columnas a través de la lista **`columns`**.
@@ -185,6 +187,8 @@ Creamos una vista temporal del dataframe que hemos creado:
 # Crear vista temporal
 df.createOrReplaceTempView("employees")
 ```
+![](images/imagen(2).png)
+
 **Explicación:** 
 1. **Crear vista temporal**: Se utiliza `createOrReplaceTempView` para crear una vista temporal llamada `employees`. Esto permite ejecutar consultas SQL directamente sobre el DataFrame.
 
@@ -200,6 +204,7 @@ avg_salary_sql = spark.sql("SELECT department, AVG(salary) as avg_salary FROM em
 print("Salario promedio por departamento (SQL):")
 avg_salary_sql.show()
 ```
+![](images/imagen(1).png)
 **Explicación:** 
 1. **Consulta SQL para empleados con salario alto**: Con `spark.sql`, se ejecuta una consulta SQL estándar que selecciona todos los empleados con salarios superiores a 70000. El resultado se almacena en `high_salary_sql` y se muestra con `high_salary_sql.show()`.
 2. **Consulta SQL para calcular salario promedio por departamento**: Se utiliza otra consulta SQL para calcular el salario promedio por departamento, agrupando los resultados por `department` y utilizando `AVG(salary)` para obtener el promedio. Los resultados se muestran con `avg_salary_sql.show()`.
