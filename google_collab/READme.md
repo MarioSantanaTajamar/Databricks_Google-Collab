@@ -2,17 +2,17 @@
 
 Vamos a ejecutar de forma local Google Colab y ejecutar en sus cuadernos Spark
 
-**Paso 1: Ir a la página web de Google Colab** 
+### Paso 1: Ir a la página web de Google Colab
 
 <https://colab.research.google.com/>
 
-**Paso 2: Abrir Google Colab y crear un cuaderno** 
+### Paso 2: Abrir Google Colab y crear un cuaderno 
 
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.013.jpeg)
 
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.014.jpeg)
 
-**Paso 3: Instalar Java** 
+### Paso 3: Instalar Java
 
 Apache Spark requiere Java para funcionar, así que necesitamos instalarlo primero. Para ello, abre una celda de código en el cuaderno y pega el siguiente comando:
 
@@ -31,7 +31,7 @@ Apache Spark requiere Java para funcionar, así que necesitamos instalarlo prime
 
 Presiona **Shift + Enter** para ejecutar el comando. Esto instalará OpenJDK 11, que es compatible con Spark. 
 
-**Paso 4: Instalar Apache Spark** 
+### Paso 4: Instalar Apache Spark
 
 Ahora que Java está instalado, es el momento de descargar Apache Spark. Añade otra celda de código y ejecuta estos comandos:
 
@@ -53,7 +53,7 @@ Estos comandos:
 - Descargarán Apache Spark desde un espejo oficial de Apache.
 - Descomprimirán el archivo descargado.
 
-**Paso 5: Configurar el entorno**
+### Paso 5: Configurar el entorno
 
 Después de descargar Spark, necesitamos configurar las variables de entorno para que Python lo reconozca. Añade una celda nueva con el siguiente código:
 
@@ -80,7 +80,7 @@ Python
 
 Esto asegura que las herramientas de Spark y Java estén disponibles en el entorno de Colab. 
 
-**Paso 6: Instalar PySpark** 
+### Paso 6: Instalar PySpark
 
 A continuación, necesitas instalar el paquete de Python que permite interactuar con Spark. Esto lo puedes hacer ejecutando el siguiente comando:
 
@@ -92,7 +92,7 @@ A continuación, necesitas instalar el paquete de Python que permite interactuar
 
 Este comando instalará la biblioteca findspark, que ayuda a encontrar y configurar Spark en el entorno de Python. 
 
-**Paso 7: Inicializar Spark** 
+### Paso 7: Inicializar Spark
 
 Finalmente, vamos a inicializar Spark. En una nueva celda, añade el siguiente código para hacerlo: 
 
@@ -111,7 +111,7 @@ Este paso:
 - Crea o obtiene una sesión de Spark con el nombre "TestSpark". 
 - Te permite empezar a trabajar con DataFrames, ejecutar consultas SQL y realizar otras operaciones en Spark de manera más sencilla.
 
-**Paso 8: Verificar que Spark está funcionando y hacer consultas**
+### Paso 8: Verificar que Spark está funcionando y hacer consultas
 
 Para asegurarte de que Spark está funcionando correctamente, puedes probar ejecutar un comando simple como este:
 
@@ -153,7 +153,7 @@ spark = SparkSession.builder \
 **Explicación:** 
 1. **`SparkSession`**: Es la entrada principal para trabajar con `DataFrames` en PySpark. Aquí se crea una sesión con el nombre "DataFrameExample". `SparkSession` facilita la creación y manipulación de datos estructurados.
 
-### Creación de un DataFrame en PySpark
+**Creación de un DataFrame en PySpark**
 ```python
 # Datos de ejemplo
 data = [
@@ -203,7 +203,7 @@ avg_salary_sql.show()
 1. **Consulta SQL para empleados con salario alto**: Con `spark.sql`, se ejecuta una consulta SQL estándar que selecciona todos los empleados con salarios superiores a 70000. El resultado se almacena en `high_salary_sql` y se muestra con `high_salary_sql.show()`.
 2. **Consulta SQL para calcular salario promedio por departamento**: Se utiliza otra consulta SQL para calcular el salario promedio por departamento, agrupando los resultados por `department` y utilizando `AVG(salary)` para obtener el promedio. Los resultados se muestran con `avg_salary_sql.show()`.
 
-**Paso 9: Cerrar la sesión de spark** 
+### Paso 9: Cerrar la sesión de spark
 
 ```bash
 spark.stop()
