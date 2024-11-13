@@ -16,11 +16,19 @@ Vamos a ejecutar de forma local Google Colab y ejecutar en sus cuadernos Spark
 
 Apache Spark requiere Java para funcionar, así que necesitamos instalarlo primero. Para ello, abre una celda de código en el cuaderno y pega el siguiente comando:
 
-!apt-get update –y ![ref1]
+
+```bash
+!apt-get update –y
+```
+    
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.016.png)
 
-!apt-get install openjdk-11-jdk –y ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.017.png)
+```bash
+!apt-get install openjdk-11-jdk –y
+```
+
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.017.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.018.png)
 
@@ -32,11 +40,17 @@ Ahora que Java está instalado, es el momento de descargar Apache Spark. Añade 
 
 Python 
 
-!wget[ https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3- bin-hadoop3.tgz ](https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3-bin-hadoop3.tgz)![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.019.png)
+```bash
+!wget https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3- bin-hadoop3.tgz
+```
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.019.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.020.png)
 
-!tar xvf spark-3.5.3-bin-hadoop3.tgz ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.021.png)
+```bash
+!tar xvf spark-3.5.3-bin-hadoop3.tgz
+```
+(Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.021.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.022.png)
 
@@ -51,15 +65,29 @@ Después de descargar Spark, necesitamos configurar las variables de entorno par
 
 Python 
 
-!sudo mv spark-3.5.3-bin-hadoop3 /opt/spark ![ref1]
+```bash
+!sudo mv spark-3.5.3-bin-hadoop3 /opt/spark
+```
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.023.png)
 
-!export SPARK\_HOME=/opt/spark ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.024.png)!export PATH=$PATH:$SPARK\_HOME/bin 
+```bash
+!export SPARK\_HOME=/opt/spark 
+```
+
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.024.png)
+
+```bash
+!export PATH=$PATH:$SPARK\_HOME/bin 
+```
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.025.png)
 
-!source ~/.bashrc ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.026.png)
+```bash
+!source ~/.bashrc
+```
+
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.026.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.027.png)
 
@@ -69,7 +97,9 @@ Esto asegura que las herramientas de Spark y Java estén disponibles en el entor
 
 A continuación, necesitas instalar el paquete de Python que permite interactuar con Spark. Esto lo puedes hacer ejecutando el siguiente comando:
 
-!pip install pyspark ![ref1]
+```bash
+!pip install pyspark
+```
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.028.png)
 
@@ -79,11 +109,19 @@ Este comando instalará la biblioteca findspark, que ayuda a encontrar y configu
 
 Finalmente, vamos a inicializar Spark. En una nueva celda, añade el siguiente código para hacerlo: 
 
-from pyspark.sql import SparkSession ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.029.png)
+```bash
+from pyspark.sql import SparkSession 
 
-spark = SparkSession.builder \     .appName("TestSpark") \ 
+  
 
-.getOrCreate() 
+spark = SparkSession.builder \ 
+
+    .appName("TestSpark") \ 
+
+    .getOrCreate() 
+```
+
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.029.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.030.png)
 
@@ -97,22 +135,40 @@ Este paso:
 
 Para asegurarte de que Spark está funcionando correctamente, puedes probar ejecutar un comando simple como este:
 
-Python. 
+Python.
 
-- Crea un DataFrame de ejemplo ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.031.png)
+```bash
+# Crea un DataFrame de ejemplo 
 
 df = spark.createDataFrame([(1, "Alice"), (2, "Bob"), (3, "Charlie")], ["id", "name"]) 
 
-- Muestra el contenido del DataFrame df.show() 
-- Realiza una operación simple 
+  
 
-  result = df.select("name").filter(df.id > 1) result.show() 
+# Muestra el contenido del DataFrame 
+
+df.show() 
+
+  
+
+# Realiza una operación simple 
+
+result = df.select("name").filter(df.id > 1) 
+
+result.show() 
+```
+
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.031.png)
+
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
 
 **Paso 9: Cerrar la sesión de spark** 
 
-` `spark.stop() ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.033.png)
+```bash
+spark.stop()
+```
+
+![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.033.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.034.png)
 
