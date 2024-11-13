@@ -139,8 +139,6 @@ df.createOrReplaceTempView("people")
 ```
 
 Para ejecutar consultas SQL en el DataFrame registrado, usa el siguiente código:
-
-**Paso 9: Cerrar la sesión de spark** 
 ```bash
 # Ejecutar una consulta SQL
 sql_result = spark.sql("SELECT name FROM people WHERE id > 1")
@@ -149,6 +147,7 @@ sql_result = spark.sql("SELECT name FROM people WHERE id > 1")
 sql_result.show()
 ```
 
+**Paso 9: Cerrar la sesión de spark** 
 
 ```bash
 spark.stop()
