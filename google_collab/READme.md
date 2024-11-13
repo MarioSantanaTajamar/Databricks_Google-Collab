@@ -25,7 +25,7 @@ Apache Spark requiere Java para funcionar, así que necesitamos instalarlo prime
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.016.png)
 
 ```bash
-!apt-get install openjdk-11-jdk –y
+!apt-get install openjdk-11-jdk
 ```
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.018.png)
 
