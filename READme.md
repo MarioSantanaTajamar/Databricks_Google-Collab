@@ -27,9 +27,6 @@ Apache Spark requiere Java para funcionar, así que necesitamos instalarlo prime
 ```bash
 !apt-get install openjdk-11-jdk –y
 ```
-
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.017.png)
-
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.018.png)
 
 Presiona **Shift + Enter** para ejecutar el comando. Esto instalará OpenJDK 8, que es compatible con Spark. 
