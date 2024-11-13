@@ -38,7 +38,7 @@ Ahora que Java está instalado, es el momento de descargar Apache Spark. Añade 
 Python 
 
 ```bash
-!wget https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3- bin-hadoop3.tgz
+!wget https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3-bin-hadoop3.tgz
 ```
 
 ![](images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.020.png)
