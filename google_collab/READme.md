@@ -8,9 +8,9 @@ Vamos a ejecutar de forma local Google Colab y ejecutar en sus cuadernos Spark
 
 **Paso 2: Abrir Google Colab y crear un cuaderno** 
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.013.jpeg)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.013.jpeg)
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.014.jpeg)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.014.jpeg)
 
 **Paso 3: Instalar Java** 
 
@@ -22,12 +22,12 @@ Apache Spark requiere Java para funcionar, así que necesitamos instalarlo prime
 ```
     
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.016.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.016.png)
 
 ```bash
 !apt-get install openjdk-11-jdk –y
 ```
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.018.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.018.png)
 
 Presiona **Shift + Enter** para ejecutar el comando. Esto instalará OpenJDK 11, que es compatible con Spark. 
 
@@ -41,12 +41,12 @@ Python
 !wget https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3- bin-hadoop3.tgz
 ```
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.020.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.020.png)
 
 ```bash
 !tar xvf spark-3.5.3-bin-hadoop3.tgz
 ```
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.022.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.022.png)
 
 Estos comandos: 
 
@@ -63,20 +63,20 @@ Python
 !sudo mv spark-3.5.3-bin-hadoop3 /opt/spark
 ```
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.023.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.023.png)
 
 ```bash
 !export SPARK\_HOME=/opt/spark 
 !export PATH=$PATH:$SPARK\_HOME/bin 
 ```
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.025.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.025.png)
 
 ```bash
 !source ~/.bashrc
 ```
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.027.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.027.png)
 
 Esto asegura que las herramientas de Spark y Java estén disponibles en el entorno de Colab. 
 
@@ -88,7 +88,7 @@ A continuación, necesitas instalar el paquete de Python que permite interactuar
 !pip install pyspark
 ```
 
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.028.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.028.png)
 
 Este comando instalará la biblioteca findspark, que ayuda a encontrar y configurar Spark en el entorno de Python. 
 
@@ -103,7 +103,7 @@ spark = SparkSession.builder \
     .appName("TestSpark") \ 
     .getOrCreate() 
 ```
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.030.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.030.png)
 
 Este paso: 
 
@@ -128,11 +128,11 @@ df.show()
 result = df.select("name").filter(df.id > 1) 
 result.show() 
 ```
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
 
 **Paso 9: Cerrar la sesión de spark** 
 
 ```bash
 spark.stop()
 ```
-![](google_collab/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.034.png)
+![](google_collab/images/Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.034.png)
