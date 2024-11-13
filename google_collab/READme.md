@@ -155,7 +155,7 @@ spark = SparkSession.builder \
 1. **`SparkSession`**: Es la entrada principal para trabajar con `DataFrames` en PySpark. Aquí se crea una sesión con el nombre "DataFrameExample". `SparkSession` facilita la creación y manipulación de datos estructurados.
 
 **Creación de un DataFrame en PySpark**
-```python
+```bash
 # Datos de ejemplo
 data = [
     (1, "John Doe", "IT", 75000),
@@ -181,7 +181,7 @@ df.show()
 4. **`df.show()`** imprime el contenido del `DataFrame` en la consola.
 
 Creamos una vista temporal del dataframe que hemos creado:
-```python
+```bash
 # Crear vista temporal
 df.createOrReplaceTempView("employees")
 ```
@@ -189,7 +189,7 @@ df.createOrReplaceTempView("employees")
 1. **Crear vista temporal**: Se utiliza `createOrReplaceTempView` para crear una vista temporal llamada `employees`. Esto permite ejecutar consultas SQL directamente sobre el DataFrame.
 
 Apartir de ahi ya podemos hacer consultas SQL refiriendonos a la tabla temporal que acabamos de crear:
-```
+```bash
 # Consulta SQL para empleados con salario alto
 high_salary_sql = spark.sql("SELECT * FROM employees WHERE salary > 70000")
 print("Empleados con salario alto (SQL):")
