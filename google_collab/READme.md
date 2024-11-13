@@ -1,4 +1,4 @@
-﻿**GOOGLE COLAB** 
+# GOOGLE COLAB
 
 Vamos a ejecutar de forma local Google Colab y ejecutar en sus cuadernos Spark
 
