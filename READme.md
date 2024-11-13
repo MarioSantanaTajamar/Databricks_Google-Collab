@@ -43,15 +43,12 @@ Python
 ```bash
 !wget https://downloads.apache.org/spark/spark-3.5.3/spark-3.5.3- bin-hadoop3.tgz
 ```
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.019.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.020.png)
 
 ```bash
 !tar xvf spark-3.5.3-bin-hadoop3.tgz
 ```
-(Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.021.png)
-
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.022.png)
 
 Estos comandos: 
@@ -73,11 +70,6 @@ Python
 
 ```bash
 !export SPARK\_HOME=/opt/spark 
-```
-
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.024.png)
-
-```bash
 !export PATH=$PATH:$SPARK\_HOME/bin 
 ```
 
@@ -86,8 +78,6 @@ Python
 ```bash
 !source ~/.bashrc
 ```
-
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.026.png)
 
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.027.png)
 
@@ -112,17 +102,10 @@ Finalmente, vamos a inicializar Spark. En una nueva celda, añade el siguiente c
 ```bash
 from pyspark.sql import SparkSession 
 
-  
-
 spark = SparkSession.builder \ 
-
     .appName("TestSpark") \ 
-
     .getOrCreate() 
 ```
-
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.029.png)
-
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.030.png)
 
 Este paso: 
@@ -139,27 +122,15 @@ Python.
 
 ```bash
 # Crea un DataFrame de ejemplo 
-
 df = spark.createDataFrame([(1, "Alice"), (2, "Bob"), (3, "Charlie")], ["id", "name"]) 
 
-  
-
 # Muestra el contenido del DataFrame 
-
 df.show() 
 
-  
-
 # Realiza una operación simple 
-
 result = df.select("name").filter(df.id > 1) 
-
 result.show() 
 ```
-
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.031.png)
-
-
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.032.jpeg)
 
 **Paso 9: Cerrar la sesión de spark** 
@@ -167,9 +138,4 @@ result.show()
 ```bash
 spark.stop()
 ```
-
-![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.033.png)
-
 ![](Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.034.png)
-
-[ref1]: Aspose.Words.9722cfa8-9de7-465e-ac6a-73fabd9bf371.015.png
